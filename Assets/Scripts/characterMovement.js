@@ -4,7 +4,8 @@ var olegSmelov = true;
 var jumpForce = 120;
 var speed = 5;
 var facingRight = true;
-var animator: Animator; 
+var animator: Animator;
+var pitBottom : float; 
 
 function FixedUpdate () {
 	if(olegSmelov){
@@ -27,6 +28,7 @@ function FixedUpdate () {
 		} else {
 			animator.SetBool("running",false);
 		}
+		respawn();
 }
 
 function OnCollisionEnter2D(touch: Collision2D) {
@@ -39,6 +41,13 @@ function OnTriggerEnter2D(touch: Collider2D) {
 		if(touch.gameObject.tag == "arenaBot"){
 			olegSmelov = true;
 		}
+}
+
+function respawn() {
+        var player = GameObject.Find("Character");
+        if (player.transform.position.y < pitBottom) {
+            player.transform.position = new Vector3(-13, 1, 0);
+        }
 }
 
 function flip(){
