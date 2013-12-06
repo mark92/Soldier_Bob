@@ -46,6 +46,7 @@
 	</Reference>
   </ItemGroup>
   <ItemGroup>
+     <Compile Include="Assets\Scripts\bounceRocket.js" />
      <Compile Include="Assets\Scripts\characterMovement.js" />
      <Compile Include="Assets\Scripts\cubeRespawn.js" />
      <Compile Include="Assets\Scripts\enemyHelmetReaction.js" />
