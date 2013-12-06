@@ -1,14 +1,16 @@
 ﻿#pragma strict
 
-var plane: GameObject;
+var plane: Transform;
+var spawnTime = 2;
+var planes = new Array();
 
 function Start () {
-	for(;;){
-		WaitForSeconds(10);
-		// Instantiate(plane);
-	}
 }
 
 function Update () {
+	if(Time.time > spawnTime){
+		spawnTime += 10;
+		planes.Push(Instantiate(plane, Vector2(GameObject.Find("spawnPoint").transform.position.x, 12.81093), GameObject.Find("spawnPoint").transform.rotation));
+	}
 
 }

@@ -10,9 +10,9 @@ function Start () {
 
 function FixedUpdate () {
 	if(!facingRight){
-		transform.position.x -=1;
+		transform.position.x -=0.1;
 	} else {	
-		transform.position.x +=1;
+		transform.position.x +=0.1;
 	}
 }
 
