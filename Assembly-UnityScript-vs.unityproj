@@ -54,6 +54,7 @@
      <Compile Include="Assets\Scripts\followPlayer.js" />
      <Compile Include="Assets\Scripts\planeCreate.js" />
      <Compile Include="Assets\Scripts\planeFly.js" />
+     <Compile Include="Assets\Scripts\spawnExplosion.js" />
      <Compile Include="Assets\Scripts\spawnRocket.js" />
      <Compile Include="Assets\Standard Assets (Mobile)\Scripts\CameraRelativeControl.js" />
      <Compile Include="Assets\Standard Assets (Mobile)\Scripts\FirstPersonControl.js" />

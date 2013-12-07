@@ -31,8 +31,8 @@ function OnCollisionExit2D(coll : Collision2D) {
     else
     {
         audio.PlayOneShot(explosionSound);
-        // WaitForSeconds(2);
-        // var explosion : GameObject = Instantiate();
+        // WaitForSeconds(2); //doesn't work(
+        // var explosion : GameObject = Instantiate(explosionSprite);
         // explosionSprite.transform.parent = this.gameObject.transform;
         // Destroy(this.gameObject);
     }
