@@ -52,6 +52,9 @@
      <Compile Include="Assets\Scripts\enemyHelmetReaction.js" />
      <Compile Include="Assets\Scripts\enemyMovement.js" />
      <Compile Include="Assets\Scripts\followPlayer.js" />
+     <Compile Include="Assets\Scripts\menuText.js" />
+     <Compile Include="Assets\Scripts\pauseGame.js" />
+     <Compile Include="Assets\Scripts\pauseMenu.js" />
      <Compile Include="Assets\Scripts\planeCreate.js" />
      <Compile Include="Assets\Scripts\planeFly.js" />
      <Compile Include="Assets\Scripts\spawnExplosion.js" />

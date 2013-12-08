@@ -2,7 +2,7 @@
 
 var explosionSound : AudioClip;
 var reflectMultiplier : float; //intensity of bounce
-var explosionSprite : GameObject;
+// var explosionSprite : GameObject;
 
 function Start () {    
 }
@@ -15,7 +15,8 @@ function FixedUpdate () {
 }
 
 function OnCollisionExit2D(coll : Collision2D) {
-    if (coll.collider.tag == "helmet") {
+    if (coll.collider.tag == "helmet")
+    {
     	Debug.Log(coll.collider.tag);
     	var normal : Vector2 = coll.contacts[0].normal;
     	var direction : Vector2 = rigidbody2D.velocity;
@@ -30,6 +31,7 @@ function OnCollisionExit2D(coll : Collision2D) {
     }
     else
     {
+        Debug.Log(coll.collider.tag);
         audio.PlayOneShot(explosionSound);
         // WaitForSeconds(2); //doesn't work(
         // var explosion : GameObject = Instantiate(explosionSprite);
@@ -38,7 +40,8 @@ function OnCollisionExit2D(coll : Collision2D) {
     }
 }
 
-function OnBecameInvisible() {  //just in case
+function OnBecameInvisible() //just in case
+{  
     Destroy(this.gameObject); 
 }
         
