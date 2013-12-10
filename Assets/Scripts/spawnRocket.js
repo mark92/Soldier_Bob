@@ -2,15 +2,16 @@
 
 var rocket: Transform;
 var spawnTime = 2;
-var rockets = new Array();
+var rocketObj;
 
 function Start () {
+	spawnTime = Time.time + 2;
 }
 
 function Update () {
 	if(Time.time > spawnTime){
 		spawnTime += 6;
-		rockets.Push(Instantiate(rocket, GameObject.Find("spawnPoint2").transform.position, GameObject.Find("spawnPoint2").transform.rotation));
+		rocketObj = Instantiate(rocket, transform.GetChild(0).transform.position, transform.GetChild(0).transform.rotation);
 	}
 
 }
