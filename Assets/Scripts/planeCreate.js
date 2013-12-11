@@ -5,6 +5,7 @@ var spawnTime = 2;
 var planeObj;
 
 function Start () {
+	spawnTime = Time.time + 2;
 }
 
 function Update () {

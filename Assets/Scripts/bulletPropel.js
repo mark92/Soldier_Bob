@@ -21,6 +21,7 @@ function OnTriggerEnter2D(touch: Collider2D) {
 	animator.SetBool("exploded",true);
 	rigidbody2D.velocity = Vector2.zero;
 	destroyTime = Time.time + 1;
+    GameObject.Find("points").guiText.text = (parseInt(GameObject.Find("points").guiText.text) + 100).ToString();
 	GetNearestTaggedObject().SendMessage("TakeDamage");
 }
 

@@ -19,6 +19,7 @@ function Update () {
 
 
 function Die(){
+	GameObject.Find("points").guiText.text = (parseInt(GameObject.Find("points").guiText.text) + 800).ToString();
   Destroy(gameObject);
 }
 

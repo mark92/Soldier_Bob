@@ -22,7 +22,6 @@ function FixedUpdate () {
 function OnCollisionEnter2D(coll : Collision2D) {
     if (coll.collider.tag == "helmet")
     {
-        Debug.Log(coll.collider.tag);
         var normal : Vector2 = coll.contacts[0].normal;
         var direction : Vector2 = rigidbody2D.velocity;
         var reflection : Vector2;
@@ -56,7 +55,7 @@ function OnTriggerEnter2D(coll : Collider2D) {
 }
 
 
-function OnBecameInvisible() //just in case
+function OnBecameInvisible()
 {  
     Destroy(gameObject); 
 }
@@ -65,6 +64,6 @@ function OnBecameInvisible() //just in case
 function ExplosionDamage(center: Vector2, radius: float) {
     var hitColliders = Physics2D.OverlapCircleAll(center, radius);
     for (var i = 0; i < hitColliders.Length; i++) {
-        hitColliders[i].SendMessage("Die");
+        hitColliders[i].SendMessage("Die",SendMessageOptions.DontRequireReceiver);
     }
 }

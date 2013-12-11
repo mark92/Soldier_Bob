@@ -49,7 +49,6 @@
      <Compile Include="Assets\Scripts\bounceRocket.js" />
      <Compile Include="Assets\Scripts\bulletPropel.js" />
      <Compile Include="Assets\Scripts\characterMovement.js" />
-     <Compile Include="Assets\Scripts\cubeRespawn.js" />
      <Compile Include="Assets\Scripts\enemyHelmetReaction.js" />
      <Compile Include="Assets\Scripts\enemyMovement.js" />
      <Compile Include="Assets\Scripts\followPlayer.js" />
@@ -61,7 +60,6 @@
      <Compile Include="Assets\Scripts\seekPlayer.js" />
      <Compile Include="Assets\Scripts\shootAmmo.js" />
      <Compile Include="Assets\Scripts\spawnEnemy.js" />
-     <Compile Include="Assets\Scripts\spawnExplosion.js" />
      <Compile Include="Assets\Scripts\spawnFollowBehaviour.js" />
      <Compile Include="Assets\Scripts\spawnRocket.js" />
      <Compile Include="Assets\Standard Assets (Mobile)\Scripts\CameraRelativeControl.js" />
