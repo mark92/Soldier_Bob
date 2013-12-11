@@ -39,3 +39,7 @@ function GetNearestTaggedObject() : Transform {
  
     return nearestObj;
 }
+
+function Die(){
+    Destroy(gameObject);
+}

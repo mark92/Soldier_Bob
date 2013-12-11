@@ -10,23 +10,23 @@ var axisVert = 0;
 
 function FixedUpdate () {
  if(olegSmelov){
-  if(Input.GetAxis ("Vertical")){
-  // if(Input.touches.Length > 0){
-  //  if(Input.touches[0].position.y < Screen.height*0.3 && Input.touches[0].position.x > Screen.width*0.25 && Input.touches[0].position.x < Screen.width*0.75){
+  // if(Input.GetAxis ("Vertical")){
+  if(Input.touches.Length > 0){
+   if(Input.touches[0].position.y < Screen.height*0.3 && Input.touches[0].position.x > Screen.width*0.25 && Input.touches[0].position.x < Screen.width*0.75){
     rigidbody2D.AddForce(Vector2(0,jumpForce*100));
     olegSmelov = false;
-   // }
+   }
   }
  }
-  // if(Input.touches.Length > 0){
-  //  if(Input.touches[0].position.x < Screen.width*0.25){
-  //   axisVert = -1;
-  //  } else if(Input.touches[0].position.x > Screen.width*0.75){
-  //   axisVert = 1;
-  //  }
+  if(Input.touches.Length > 0){
+   if(Input.touches[0].position.x < Screen.width*0.25){
+    axisVert = -1;
+   } else if(Input.touches[0].position.x > Screen.width*0.75){
+    axisVert = 1;
+   }
 
   animator = GetComponent("Animator");
-  var axisVert = Input.GetAxis ("Horizontal");
+  // var axisVert = Input.GetAxis ("Horizontal");
   rigidbody2D.AddForce(Vector2(axisVert*speed*100,0));
   if(axisVert < 0 && facingRight){
    flip();
@@ -40,8 +40,8 @@ function FixedUpdate () {
    animator.SetBool("running",false);
   }
   respawn();
-  // axisVert = 0;
-  // }
+  axisVert = 0;
+  }
 }
 
 function OnCollisionEnter2D(touch: Collision2D) {
@@ -69,4 +69,8 @@ function flip(){
  var buff = transform.localScale;
  buff.x *= -1;
  transform.localScale = buff;
+}
+
+function Die(){
+  transform.position = new Vector3(-13, 1, 0);
 }

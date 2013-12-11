@@ -31,3 +31,14 @@ function flip(){
 	buff.x *= -1;
 	transform.localScale = buff;
 }
+
+
+function Die(){
+  Destroy(gameObject);
+}
+
+
+function OnBecameInvisible() //just in case
+{  
+    Destroy(gameObject); 
+}

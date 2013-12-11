@@ -19,7 +19,7 @@ function Update () {
 function FixedUpdate () {  
 }
 
-function OnCollisionExit2D(coll : Collision2D) {
+function OnCollisionEnter2D(coll : Collision2D) {
     if (coll.collider.tag == "helmet")
     {
         Debug.Log(coll.collider.tag);
@@ -37,17 +37,34 @@ function OnCollisionExit2D(coll : Collision2D) {
     else
     {
         audio.PlayOneShot(explosionSound);
-          animator = GetComponent("Animator");
-           animator.SetBool("exploded",true);
- rigidbody2D.velocity = Vector2.zero;
-    destroyTime = Time.time + 1;
-        // WaitForSeconds(2); //doesn't work(
+        animator = GetComponent("Animator");
+        animator.SetBool("exploded",true);
+        rigidbody2D.velocity = Vector2.zero;
+        ExplosionDamage(new Vector2(transform.position.x, transform.position.y), 2);
+        destroyTime = Time.time + 1;
     }
 
 }
+
+function OnTriggerEnter2D(coll : Collider2D) {
+    audio.PlayOneShot(explosionSound);
+    animator = GetComponent("Animator");
+    animator.SetBool("exploded",true);
+    rigidbody2D.velocity = Vector2.zero;
+    ExplosionDamage(new Vector2(transform.position.x, transform.position.y), 2);
+    destroyTime = Time.time + 1;
+}
+
 
 function OnBecameInvisible() //just in case
 {  
     Destroy(gameObject); 
 }
         
+
+function ExplosionDamage(center: Vector2, radius: float) {
+    var hitColliders = Physics2D.OverlapCircleAll(center, radius);
+    for (var i = 0; i < hitColliders.Length; i++) {
+        hitColliders[i].SendMessage("Die");
+    }
+}

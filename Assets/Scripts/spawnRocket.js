@@ -1,5 +1,6 @@
 ﻿#pragma strict
 
+var health = 8;
 var rocket: Transform;
 var spawnTime = 2;
 var rocketObj;
@@ -14,4 +15,21 @@ function Update () {
 		rocketObj = Instantiate(rocket, transform.GetChild(0).transform.position, transform.GetChild(0).transform.rotation);
 	}
 
+}
+
+
+function Die(){
+  Destroy(gameObject);
+}
+
+function TakeDamage(){
+	health -= 1;
+	if(health <= 0){
+		Die();
+	}
+}
+
+function OnBecameInvisible() //just in case
+{  
+    Destroy(gameObject); 
 }

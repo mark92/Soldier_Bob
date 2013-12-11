@@ -8,6 +8,10 @@ function Start () {
 
 }
 
+function Update() {
+
+}
+
 function OnMouseEnter()
 {
      renderer.material.color = Color.yellow;
@@ -34,3 +38,5 @@ function OnMouseUp()
 		Application.LoadLevel(1);
 	}
 }
+
+
