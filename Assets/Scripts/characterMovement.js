@@ -91,7 +91,9 @@ function Die(){
   dead = true;
   ressurect();
   if(health == 0){
-
+    PlayerPrefs.SetString("Score", GameObject.Find("points").guiText.text);
+    PlayerPrefs.Save();
+    Application.LoadLevel(2);
   }
   yield WaitForSeconds(0.4);
   switch(health){
