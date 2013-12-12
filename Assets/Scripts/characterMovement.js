@@ -102,7 +102,7 @@ function Die(){
     case 1: Destroy(GameObject.Find("health1")); break;
   }
   health -= 1;
-  transform.position = new Vector3(-13, 1, 0);
+  transform.position = new Vector3(-1, -8, 0);
 }
 
 
