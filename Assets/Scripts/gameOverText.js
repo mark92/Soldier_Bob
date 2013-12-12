@@ -4,7 +4,7 @@ var isExitButton : boolean = false;
 
 function Start ()
 {
-	
+	Screen.showCursor = true;
 }
 
 function OnMouseEnter()

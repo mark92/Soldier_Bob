@@ -5,7 +5,7 @@ var isExitButton : boolean = false;
 var isOptionsButton : boolean = false;
 
 function Start () {
-
+	Screen.showCursor = true;
 }
 
 function Update() {
