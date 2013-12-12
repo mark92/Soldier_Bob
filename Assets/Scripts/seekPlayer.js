@@ -1,12 +1,12 @@
 ﻿#pragma strict
 
 var target : Transform;
-var speed : float = 20;
+var speed : float = 10;
  
 function Start () {
 	target = GameObject.FindWithTag("Player").transform;
-     rigidbody2D.AddForce(new Vector2(- transform.position.x + target.position.x, -transform.position.y - 0.5 + target.position.y)*speed*5);
-     transform.eulerAngles.z = Mathf.Atan((target.position.y-0.5-transform.position.y)/(target.position.x-transform.position.x))* 180/Mathf.PI ;
+     rigidbody2D.AddForce(new Vector2(- transform.position.x + target.position.x, -transform.position.y - 2 + target.position.y)*speed*5);
+     transform.eulerAngles.z = Mathf.Atan((target.position.y-2-transform.position.y)/(target.position.x-transform.position.x))* 180/Mathf.PI ;
      if((target.position.y-transform.position.y)/(target.position.x-transform.position.x) < 0){
      	transform.eulerAngles.z = transform.eulerAngles.z - 180;
      }

@@ -3,15 +3,21 @@
 var health = 8;
 var rocket: Transform;
 var spawnTime = 2;
+var explosionSound : AudioClip;
+var animator: Animator;
 var rocketObj;
+var destroyTime = 0;
 
 function Start () {
 	spawnTime = Time.time + 2;
 }
 
 function Update () {
+   if(Time.time > destroyTime && destroyTime != 0){
+        Destroy(gameObject);
+    }
 	if(Time.time > spawnTime){
-		spawnTime += 6;
+		spawnTime += 3;
 		rocketObj = Instantiate(rocket, transform.GetChild(0).transform.position, transform.GetChild(0).transform.rotation);
 	}
 
@@ -19,8 +25,12 @@ function Update () {
 
 
 function Die(){
+	audio.PlayOneShot(explosionSound);
+    animator = GetComponent("Animator");
+    animator.SetBool("exploded",true);
+    rigidbody2D.velocity = Vector2.zero;
+    destroyTime = Time.time + 1;
 	GameObject.Find("points").guiText.text = (parseInt(GameObject.Find("points").guiText.text) + 800).ToString();
-  Destroy(gameObject);
 }
 
 function TakeDamage(){

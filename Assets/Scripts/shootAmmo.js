@@ -40,6 +40,6 @@ function GetNearestTaggedObject() : Transform {
     return nearestObj;
 }
 
-function Die(){
-    Destroy(transform.parent.gameObject);
-}
+// function Die(){
+//     Destroy(transform.parent.gameObject);
+// }

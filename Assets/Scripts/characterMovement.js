@@ -29,7 +29,7 @@ function FixedUpdate () {
     if(Input.touches.Length > 0){
         for(var i =0; i< Input.touches.Length; i++){
             if(olegSmelov){
-                if(Input.touches[i].position.y < Screen.height*0.3 && Input.touches[i].position.x > Screen.width*0.25 && Input.touches[i].position.x < Screen.width*0.75){
+                if(Input.touches[i].position.x > Screen.width*0.25 && Input.touches[i].position.x < Screen.width*0.75){
                     rigidbody2D.AddForce(Vector2(0,jumpForce*100));
                     olegSmelov = false;
                 }
@@ -95,12 +95,14 @@ function Die(){
     PlayerPrefs.Save();
     Application.LoadLevel(2);
   }
+  renderer.enabled = false;
   yield WaitForSeconds(0.4);
   switch(health){
     case 3: Destroy(GameObject.Find("health3")); break;
     case 2: Destroy(GameObject.Find("health2")); break;
     case 1: Destroy(GameObject.Find("health1")); break;
   }
+  renderer.enabled = true;
   health -= 1;
   transform.position = new Vector3(-1, -8, 0);
 }

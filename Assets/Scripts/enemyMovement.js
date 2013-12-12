@@ -8,7 +8,6 @@ var animator: Animator;
 var explosionSound : AudioClip;
 var destroyTime = 0;
 
-
 function FixedUpdate () {
    if(Time.time > destroyTime && destroyTime != 0){
         Destroy(gameObject);
@@ -25,7 +24,7 @@ function FixedUpdate () {
 
 function OnTriggerEnter2D(touch: Collider2D) {
 	if(!stunned){	
-			if(touch.gameObject.tag == "arenaBot"){
+			if(touch.gameObject.tag == "wall" || touch.gameObject.tag == "enemy"){
 				flip();
 			}
 		}

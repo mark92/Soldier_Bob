@@ -41,6 +41,7 @@ function OnCollisionEnter2D(coll : Collision2D) {
         rigidbody2D.velocity = Vector2.zero;
         ExplosionDamage(new Vector2(transform.position.x, transform.position.y), 2);
         destroyTime = Time.time + 1;
+        Destroy(gameObject.GetComponent("PolygonCollider2D"));
     }
 
 }
@@ -51,6 +52,7 @@ function OnTriggerEnter2D(coll : Collider2D) {
     animator.SetBool("exploded",true);
     rigidbody2D.velocity = Vector2.zero;
     ExplosionDamage(new Vector2(transform.position.x, transform.position.y), 2);
+        Destroy(gameObject.GetComponent("PolygonCollider2D"));
     destroyTime = Time.time + 1;
 }
 

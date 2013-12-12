@@ -6,7 +6,7 @@ var destroyTime = 0;
 
 function Start () {
 	rigidbody2D.AddForce(Vector2.up*speed*100);
-	destroyTime = Time.time + 1;
+	destroyTime = Time.time + 3;
 }
 
 function Update () {
