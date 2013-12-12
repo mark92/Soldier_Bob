@@ -25,10 +25,7 @@ function OnCollisionEnter2D(coll : Collision2D) {
         var normal : Vector2 = coll.contacts[0].normal;
         var direction : Vector2 = rigidbody2D.velocity;
         var reflection : Vector2;
-        reflection = 2 * Vector2.Dot(direction, normal) * normal - direction;       
-        Debug.DrawRay(coll.contacts[0].point, coll.contacts[0].normal, Color.blue, 10);
-        Debug.DrawRay(coll.contacts[0].point, direction, Color.red, 10);
-        Debug.DrawRay(coll.contacts[0].point, reflection, Color.green, 10);
+        reflection = 2 * Vector2.Dot(direction, normal) * normal - direction;
         // rigidbody2D.AddForce(reflection);
         rigidbody2D.velocity = reflection * reflectMultiplier;
         rigidbody2D.fixedAngle = true;
