@@ -3,6 +3,12 @@
 var newSkin : GUISkin;
 var logoTexture : Texture2D;
 var pauseSound : AudioClip;
+var bgm : AudioSource;
+
+function Start ()
+{
+    bgm = GameObject.Find("bgmSource").GetComponent(AudioSource);
+}
 
 function thePauseMenu() 
 {
@@ -17,7 +23,7 @@ function thePauseMenu()
         var script = GetComponent(pauseMenu);
         Time.timeScale = 1;
         GetComponent(pauseGame).setPause(false);
-        GetComponent(AudioSource).Play();
+        bgm.Play();
         audio.PlayOneShot(pauseSound);
         Screen.showCursor = false; //comment out for touch controls
         script.enabled = false; 

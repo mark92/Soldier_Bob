@@ -1,6 +1,5 @@
 ﻿#pragma strict
 
-var isStartButton : boolean = false;
 var isExitButton : boolean = false;
 var isOptionsButton : boolean = false;
 
@@ -29,10 +28,10 @@ function OnMouseUp()
 		Debug.Log("would quit");
 		Application.Quit();
 	}
-	// else if (isOptionsButton)
-	// {
-	// 	Application.LoadLevel(1);
-	// }
+	else if (isOptionsButton)
+	{
+		Application.LoadLevel(3);
+	}
 	else
 	{
 		Application.LoadLevel(1);

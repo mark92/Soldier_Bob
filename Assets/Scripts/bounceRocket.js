@@ -1,6 +1,7 @@
 ﻿#pragma strict
 
 var explosionSound : AudioClip;
+var bounceSound : AudioClip;
 var reflectMultiplier : float; //intensity of bounce
 var animator: Animator;
 var destroyTime = 0;
@@ -27,8 +28,9 @@ function OnCollisionEnter2D(coll : Collision2D) {
         var reflection : Vector2;
         reflection = 2 * Vector2.Dot(direction, normal) * normal - direction;
         // rigidbody2D.AddForce(reflection);
+        audio.PlayOneShot(bounceSound);
         rigidbody2D.velocity = reflection * reflectMultiplier;
-        rigidbody2D.fixedAngle = true;
+        // rigidbody2D.fixedAngle = true;
     }
     else
     {

@@ -9,6 +9,7 @@ var pitBottom : float;
 var axisVert = 0;
 var health = 3;
 var dead = false;
+var jumpSound : AudioClip;
 
 function Start(){
   InvokeRepeating("IncreasePoints",0, 1);
@@ -21,6 +22,7 @@ function IncreasePoints(){
 function FixedUpdate () {
     if(Input.GetAxis ("Vertical")){
       if(olegSmelov){
+                audio.PlayOneShot(jumpSound);
                 rigidbody2D.AddForce(Vector2(0,jumpForce*100));
                 olegSmelov = false;
             }

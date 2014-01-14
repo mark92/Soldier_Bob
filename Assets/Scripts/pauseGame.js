@@ -7,7 +7,7 @@ var bgm : AudioSource;
 
 function Update () {
     var pauseMenu = GetComponent(pauseMenu);
-    bgm = GetComponent(AudioSource);
+    bgm = GameObject.Find("bgmSource").GetComponent(AudioSource);
     if (Input.GetKeyDown(KeyCode.Escape))
     {
         if (gameIsPaused)
