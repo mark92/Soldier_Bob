@@ -20,6 +20,7 @@ function OnMouseUp()
     {
         GameObject.Find("tutorPic").GetComponent(SpriteRenderer).sprite = pic1;
         page += 1;
+        renderer.material.color = Color.white;
     }
     else if (page == 1)
     {
@@ -27,9 +28,11 @@ function OnMouseUp()
         GetComponent(TextMesh).text = "Got It!>";
         transform.position.x = -2.3;
         page += 1;
+        renderer.material.color = Color.white;
     }
     else
     {
+        renderer.material.color = Color.white;
         Application.LoadLevel(3);
     }
 
