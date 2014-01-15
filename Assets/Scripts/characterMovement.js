@@ -12,12 +12,13 @@ var dead = false;
 var jumpSound : AudioClip;
 
 function Start(){
-  InvokeRepeating("IncreasePoints",0, 1);
+  animator = GetComponent("Animator");
+  // InvokeRepeating("IncreasePoints",0, 1);
 }
 
-function IncreasePoints(){
-    GameObject.Find("points").guiText.text = (parseInt(GameObject.Find("points").guiText.text) + 10).ToString();
-}
+// function IncreasePoints(){
+//     GameObject.Find("points").guiText.text = (parseInt(GameObject.Find("points").guiText.text) + 10).ToString();
+// }
 
 function FixedUpdate () {
     if(Input.GetAxis ("Vertical")){
@@ -25,6 +26,7 @@ function FixedUpdate () {
                 audio.PlayOneShot(jumpSound);
                 rigidbody2D.AddForce(Vector2(0,jumpForce*100));
                 olegSmelov = false;
+                animator.SetBool("jumping", true);
             }
           }
     var axisVert = Input.GetAxis ("Horizontal");
@@ -34,6 +36,7 @@ function FixedUpdate () {
                 if(Input.touches[i].position.x > Screen.width*0.25 && Input.touches[i].position.x < Screen.width*0.75){
                     rigidbody2D.AddForce(Vector2(0,jumpForce*100));
                     olegSmelov = false;
+                    animator.SetBool("jumping", true);
                 }
             }
             if(Input.touches[i].position.x < Screen.width*0.25){
@@ -44,7 +47,6 @@ function FixedUpdate () {
         }
     }
 
-  animator = GetComponent("Animator");
   rigidbody2D.AddForce(Vector2(axisVert*speed*100,0));
   if(axisVert < 0 && facingRight){
    flip();
@@ -52,7 +54,7 @@ function FixedUpdate () {
    flip();
   }
 
-  if(axisVert != 0){
+  if((axisVert != 0) && (!animator.GetBool("jumping"))) {
    animator.SetBool("running",true);
   } else {
    animator.SetBool("running",false);
@@ -64,12 +66,14 @@ function FixedUpdate () {
 function OnCollisionEnter2D(touch: Collision2D) {
   if(touch.gameObject.tag == "arenaBot"){
    olegSmelov = true;
+   animator.SetBool("jumping", false);
   }
 }
 
 function OnTriggerEnter2D(touch: Collider2D) {
   if(touch.gameObject.tag == "arenaBot"){
    olegSmelov = true;
+   animator.SetBool("jumping", false);
   }
 }
 

@@ -4,6 +4,10 @@ var gameIsPaused : boolean = false;
 var pauseSound : AudioClip;
 var bgm : AudioSource;
 
+function Start ()
+{
+    Screen.showCursor = false;
+}
 
 function Update () {
     var pauseMenu = GetComponent(pauseMenu);

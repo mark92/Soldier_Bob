@@ -5,6 +5,7 @@ var bounceSound : AudioClip;
 var reflectMultiplier : float; //intensity of bounce
 var animator: Animator;
 var destroyTime = 0;
+var yieldedPoints = false;
 
 
 function Start () {    
@@ -30,6 +31,11 @@ function OnCollisionEnter2D(coll : Collision2D) {
         // rigidbody2D.AddForce(reflection);
         audio.PlayOneShot(bounceSound);
         rigidbody2D.velocity = reflection * reflectMultiplier;
+        if (!yieldedPoints)
+        {
+            GameObject.Find("points").guiText.text = (parseInt(GameObject.Find("points").guiText.text) + 100).ToString();
+            yieldedPoints = true;
+        }
         // rigidbody2D.fixedAngle = true;
     }
     else

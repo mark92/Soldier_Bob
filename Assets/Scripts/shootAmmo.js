@@ -13,7 +13,8 @@ function Update () {
 
 function OnCollisionEnter2D(touch: Collision2D) {
   if(touch.gameObject.tag == "Player"){
-     bulletObj = Instantiate(bullet, GetNearestTaggedObject().position , GetNearestTaggedObject().rotation);
+    GameObject.Find("points").guiText.text = (parseInt(GameObject.Find("points").guiText.text) + 10).ToString();
+    bulletObj = Instantiate(bullet, GetNearestTaggedObject().position , GetNearestTaggedObject().rotation);
   }
 }
 

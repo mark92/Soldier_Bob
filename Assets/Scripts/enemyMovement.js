@@ -3,7 +3,8 @@
 var speed = 1;
 var facingRight = false;
 var axisVert = 0;
-var stunned = false;
+var squashed = false;
+// var stunned = false;
 var animator: Animator;
 var explosionSound : AudioClip;
 var destroyTime = 0;
@@ -12,7 +13,13 @@ function FixedUpdate () {
    if(Time.time > destroyTime && destroyTime != 0){
         Destroy(gameObject);
     }
-	if(!stunned){
+    // if (squashed)
+    // {
+    // 	rigidbody2D.velocity = Vector2(0, 0);
+    // 	StartCoroutine(WaitAndDie);
+    // }
+    WaitAndDie();
+	if(!squashed){
 			if(facingRight){
 				 	axisVert = 1;
 			} else {
@@ -23,7 +30,7 @@ function FixedUpdate () {
 }
 
 function OnTriggerEnter2D(touch: Collider2D) {
-	if(!stunned){	
+	if(!squashed){	
 			if(touch.gameObject.tag == "wall" || touch.gameObject.tag == "enemy"){
 				flip();
 			}
@@ -62,4 +69,15 @@ function Die(){
 function OnBecameInvisible() //just in case
 {  
     Destroy(gameObject); 
+}
+
+function WaitAndDie ()
+{
+	if(squashed)
+	{
+		rigidbody2D.velocity = Vector2.zero;
+		Destroy(GetComponent("BoxCollider2D"));
+		yield WaitForSeconds (1);
+		Destroy(gameObject);
+	}
 }
